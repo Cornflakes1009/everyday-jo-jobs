@@ -1,12 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Everyday Jo Jobs</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="../public/assets/css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
 </head>
+
 <body>
-    <h1>Profile Page</h1>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Everyday Jo Jobs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link active" href="#">View Profile
+                    <span class="sr-only">(current)</span>
+                </a>
+                <a class="nav-item nav-link active" href="#">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <main role="main" class="container-fluid main-div">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <img class="img-responsive" id="profile-image" src="../public/assets/generic-person.jpg" alt="profile picture" />
+            </div>
+            <div class="col-md-5">
+                <div class="card" id="profile-card">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-12">
+                            <h2 class="card-title">Name: <span id="user-name">John Smith</span></h2>
+                            <p class="card-text"><strong>User ID: </strong> <span id="user-id">TestID</span></p>
+                            <p class="card-text"><strong>Address: </strong> <span id="user-address">123 Main St</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                            <p class="card-text profile-margin"><strong>City: </strong> <span id="user-city">Kansas City</span></p>
+                            </div>
+                            <div class="col-md-3">
+                            <p class="card-text profile-margin"><strong>State: </strong> <span id="user-state">MO</span></p>
+                            </div>
+                            <div class="col-md-3">
+                            <p class="card-text profile-margin" id="zip-prof"><strong>Zip: </strong> <span id="user-zip">64000</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                            <p class="card-text profile-margin"><strong>Email: </strong> <span id="user-email">john@example.com</span></p>
+                            <p class="card-text"><strong>Phone: </strong> <span id="user-phone">816-555-1234</span></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+        <div class="row" id="prof-skills-hd">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Skills
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Dog Walking</li>
+                            <li class="list-group-item">Dog Grooming</li>
+                            <li class="list-group-item">Dog Watching</li>
+                        </ul>
+                </div>
+            <div class="col-md-1"></div>
+        
+    </main>
+
 </body>
 </html>

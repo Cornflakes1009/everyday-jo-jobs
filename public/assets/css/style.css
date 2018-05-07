@@ -1,0 +1,27 @@
+.main-div {
+    margin: 30px 0px 15px 0px;
+}
+#signUpSubmit {
+    margin-top: 20px;
+}
+
+#modal-signup-btn {
+    margin-top: 20px;
+}
+
+#profile-image {
+    height: 300px;
+    width: 300px;
+}
+
+#profile-card {
+    border: none;
+}
+
+.profile-margin {
+    margin-top: 16px;
+}
+
+#prof-skills-hd {
+    margin: 20px 0px;
+}
