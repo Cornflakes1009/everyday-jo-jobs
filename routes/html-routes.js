@@ -1,4 +1,4 @@
-var connection = require("../controllers/controller.js");
+var connection = require("../config/connection.js");
 var path = require("path")
 
 module.exports = function(app) {

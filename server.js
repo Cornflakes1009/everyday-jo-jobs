@@ -9,6 +9,8 @@ var PORT = process.env.PORT || 8080;
 
 // Sets up the Express app to handle data parsing
 
+var db = require("./models");
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
@@ -23,6 +25,8 @@ require("./routes/html-routes.js")(app);
 
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+db.sequelize.sync().then(function () {
+  app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
+  });
 });
