@@ -1,6 +1,8 @@
 
 var apiController = require('../controllers/apiController');
 // Routes
+var db = require("../models");
+
 // =============================================================
 module.exports = function(app) {
 
@@ -13,31 +15,20 @@ module.exports = function(app) {
     });
   });
 
-  // app.get("/api/names/:id?", apiController.getName);
+app.post("/api/members", function(req, res) {
+  console.log(req.body);
+  db.Members.create({
+    name: req.body.name,
+    body: req.body.body,
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+    last_login: req.body.last_login,
+    password: req.body.password,
 
-//   // POST route for saving a new todo
-//   app.post("/api/todos", function(req, res) {
-//     console.log(req.body);
-//     // create takes an argument of an object describing the item we want to
-//     // insert into our table. In this case we just we pass in an object with a text
-//     // and complete property (req.body)
-//     db.Todo.create({
-//       text: req.body.text,
-//       complete: req.body.complete
-//     }).then(function(dbTodo) {
-//       // We have access to the new todo as an argument inside of the callback function
-//       res.json(dbTodo);
-//     });
-//   });
-
-//   // DELETE route for deleting todos. We can get the id of the todo we want to delete from
-//   // req.params.id
-//   app.delete("/api/todos/:id", function(req, res) {
-
-//   });
-
-//   // PUT route for updating todos. We can get the updated todo from req.body
-//   app.put("/api/todos", function(req, res) {
-
-//   });
+  })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
+});
 };
