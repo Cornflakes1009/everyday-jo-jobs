@@ -9,17 +9,18 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link href="/assets/css/style.css" rel="stylesheet">
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <link href="/assets/css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">Everyday Jo Jobs</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +44,7 @@
                     <label for="skill-search" class="sr-only">Search</label>
                     <input type="text" class="form-control" id="skill-search" placeholder="Search for Skill">
                 </div>
-                <button type="submit" class="btn btn-primary mb-2">Search </button>
+                <button type="submit" class="btn mb-2">Search </button>
             </form>
             <div class="col-md-1"></div>
         </div>
@@ -57,7 +58,7 @@
                     </div>
                     <div class="card-body">
                         <table class="table table-hover table-bordered">
-                            <thead>
+                            <thead class="main-table-head">
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Skills</th>
@@ -131,7 +132,7 @@
                                             <input type="password" class="form-control" id="modal-password" placeholder="Password">
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" data-dismiss="modal" id="modal-submit">Submit</button>
+                                    <button type="submit" class="btn" data-dismiss="modal" id="modal-submit">Submit</button>
                                 </form>
                             </div>
                         </div>
@@ -145,7 +146,7 @@
                                             Click the button below to Sign Up
                                         </div>
                                 <div class="text-center" id="modal-signup-btn">
-                                    <button type="submit" class="btn btn-primary" data-dismiss="modal" id="modal-sign-up">Sign Up</button>
+                                    <button type="submit" class="btn" data-dismiss="modal" id="modal-sign-up">Sign Up</button>
                                 </div>
                             </div>
 
