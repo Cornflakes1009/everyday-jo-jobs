@@ -1,6 +1,5 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    /* background: linear-gradient(to right, #2b7a78, #def2f1); */
     background: linear-gradient(to right, #05668d, #028090, #00a896, #02c39a);
 }
 
@@ -23,15 +22,18 @@ a:hover, .form-check-label:hover, .form-check-input:hover {
 }
 
 .card-body, .modal-body, .list-group-item {
-    /* background-color: #5eafab; */
-    background-color: #00a896;
-    /* background: linear-gradient(to right, #feffff, #3aafa9); */
-    color: #ffffff;
+    /* styled with background green and white text */
+    /* background-color: #00a896;
+    color: #ffffff; */
+
+    background-color: #ffffff;
+    
 }
 
 .main-table-head {
     /* background-color: #2b7a78; */
     background-color: #05668d;
+    color: #ffffff;
 }
 
 .btn {
@@ -44,7 +46,7 @@ a:hover, .form-check-label:hover, .form-check-input:hover {
 }
 
 .list-group-item {
-    border-color: #ffffff;
+    /* border-color: #ffffff; */
 }
 
 .navbar-brand {
