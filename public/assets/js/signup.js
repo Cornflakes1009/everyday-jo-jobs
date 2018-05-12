@@ -1,8 +1,6 @@
 // pulls data from signup page
 
 $(document).ready(function () {
-    console.log('linked');
-    alert('controller linked');
     var skillsList = [];
     var hourlyWage = 0;
     var email;
@@ -11,7 +9,9 @@ $(document).ready(function () {
     var phoneNumber;
     var city;
     var state;
+    var completelyFilledOut = false;
 
+    
     function checkFormFields() {
         email = $('#signup-email').val().trim();
         password = $('#signup-password').val().trim();
@@ -36,6 +36,7 @@ $(document).ready(function () {
             console.log('please fill in the state box');
         } else {
             console.log('all filled in');
+            completelyFilledOut = true;
         }
     } // end of checkFormFields function
 
@@ -151,13 +152,30 @@ $(document).ready(function () {
     //         complete: false
     //     };
 
-    //     $.post("/api/todos", todo, getTodos);
-    //     // $newItemInput.val("");
+    //     $.post("/api/members", todo, getMembers);
+
     // }
 
 
 
 
+    function createMember(User) {
+        console.log("createMember func ran");
+        $.post("/api/posts/", User, function() {
+            // put create logic here ?
+            var newUser = {
+                name: name,
+                email: email,
+                password : password,
+                // skillsList: skillsList,
+                phoneNumber: phoneNumber,
+                city: city,
+                state: state,
+                hourlyWage: hourlyWage
+            };
+            window.location.href = "/profile"; // untested redirect
+        });
+      };
 
 
 
@@ -167,6 +185,10 @@ $(document).ready(function () {
         checkSkillsBoxes();
         console.log(skillsList);
         checkHourlyWage();
+        if(completelyFilledOut === true) {
+            createMember();
+        }
+        
     }); // end of submit button clicked
 
 

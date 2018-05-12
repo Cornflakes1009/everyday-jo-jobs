@@ -18,9 +18,11 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			notEmpty: true
 		},
-		username: {                    
-			type:DataTypes.TEXT  
-		},
+		// username: {                    
+		// 	type:DataTypes.TEXT  
+		// },
+
+		// about - don't need anything from page
 		about : {
 			type: DataTypes.TEXT
 		},
@@ -39,10 +41,24 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.ENUM('active','inactive'),
 			defaultValue:'active' 
 		},
+
+		
 		//any other information that you want to add to sequelize 
-    skills: {
-      type: DataTypes.STRING // should this be a string? 
-    }
+    	skillsList: {
+      		type: DataTypes.STRING // should this be a string? 
+		},
+		phoneNumber : {
+			type: DataTypes.INTEGER
+		},
+		city: {
+			type: DataTypes.STRING
+		},
+		state: {
+			type: DataTypes.STRING
+		}, 
+		hourlyWage: {
+			type: DataTypes.INTEGER
+		}
 });
 
 	return User;
