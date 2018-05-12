@@ -1,6 +1,60 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* background: linear-gradient(to right, #2b7a78, #def2f1); */
+    background: linear-gradient(to right, #05668d, #028090, #00a896, #02c39a);
+}
+
+.navbar, .modal-header, .card-header {
+    background-color: #17252a;
+    color: #ffffff;
+}
+
+a {
+    color: #ffffff;
+}
+
+a:hover, .form-check-label:hover, .form-check-input:hover {
+    color: #cac8c8;
+}
+
+.card-header {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.card-body, .modal-body, .list-group-item {
+    /* background-color: #5eafab; */
+    background-color: #00a896;
+    /* background: linear-gradient(to right, #feffff, #3aafa9); */
+    color: #ffffff;
+}
+
+.main-table-head {
+    /* background-color: #2b7a78; */
+    background-color: #05668d;
+}
+
+.btn {
+    background-color: #05668d;
+    color: #ffffff;
+}
+
+.btn:hover {
+    background-color: #00505a;
+}
+
+.list-group-item {
+    border-color: #ffffff;
+}
+
+.navbar-brand {
+    font-size: 25px;
+}
+
 .main-div {
     margin: 30px 0px 15px 0px;
 }
+
 #signup-submit {
     margin-top: 20px;
 }
@@ -10,8 +64,8 @@
 }
 
 #profile-image {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
 }
 
 #profile-card {
