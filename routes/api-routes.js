@@ -1,13 +1,5 @@
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
 
-// Dependencies
-// =============================================================
-
-// Requiring our Todo model
-var db = require("../models");
-
+var apiController = require('../controllers/apiController');
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -20,6 +12,8 @@ module.exports = function(app) {
       res.json(dbMembers);
     });
   });
+
+  // app.get("/api/names/:id?", apiController.getName);
 
 //   // POST route for saving a new todo
 //   app.post("/api/todos", function(req, res) {
