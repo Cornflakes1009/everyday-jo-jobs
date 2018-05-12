@@ -22,7 +22,7 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
-
+require("./routes/api-routes.js")(app);
 // Starts the server to begin listening
 // =============================================================
 db.sequelize.sync().then(function () {
