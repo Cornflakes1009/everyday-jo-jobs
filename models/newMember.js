@@ -47,8 +47,8 @@ module.exports = function(Sequelize, DataTypes) {
     	// skillsList: {
       	// 	type: DataTypes.STRING // should this be a string? 
 		// },
-		phoneNumber : {
-			type: DataTypes.INTEGER
+		phoneNumber: {
+			type: DataTypes.TEXT
 		},
 		city: {
 			type: DataTypes.STRING
