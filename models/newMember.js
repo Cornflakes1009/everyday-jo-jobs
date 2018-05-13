@@ -9,11 +9,11 @@
 module.exports = function(Sequelize, DataTypes) {
   
 	var User = Sequelize.define('User', {
-		// id: { 
-		// 	autoIncrement: true, 
-		// 	primaryKey: true, 
-		// 	type: DataTypes.INTEGER
-		// },
+		id: { 
+			autoIncrement: true, 
+			primaryKey: true, 
+			type: DataTypes.INTEGER
+		},
 		name: { 
 			type: DataTypes.STRING,
 			notEmpty: true
