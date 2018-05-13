@@ -1,11 +1,3 @@
-// module.exports = function(sequelize, DataTypes) {
-//     var Members = sequelize.define("Members", {
-//       text: DataTypes.STRING,
-//       complete: DataTypes.BOOLEAN
-//     });
-//     return Members;
-//   };
-
 module.exports = function(Sequelize, DataTypes) {
   
 	var User = Sequelize.define('User', {
@@ -21,8 +13,6 @@ module.exports = function(Sequelize, DataTypes) {
 		// username: {                    
 		// 	type:DataTypes.TEXT  
 		// },
-
-		// about - don't need anything from page
 		about : {
 			type: DataTypes.TEXT
 		},
@@ -41,12 +31,6 @@ module.exports = function(Sequelize, DataTypes) {
 			type: DataTypes.ENUM('active','inactive'),
 			defaultValue:'active' 
 		},
-
-		
-		//any other information that you want to add to sequelize 
-    	// skillsList: {
-      	// 	type: DataTypes.STRING // should this be a string? 
-		// },
 		phoneNumber: {
 			type: DataTypes.TEXT
 		},
@@ -56,9 +40,6 @@ module.exports = function(Sequelize, DataTypes) {
 		state: {
 			type: DataTypes.STRING
 		}, 
-		hourlyWage: {
-			type: DataTypes.INTEGER
-		},
 		skillOne: {
 			type: DataTypes.STRING
 		},
