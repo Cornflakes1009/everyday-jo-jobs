@@ -32,19 +32,20 @@ app.post("/api/members", function(req, res) {
     });
 });
 };
-//routes for sign up, sign in and log out
+//Passport routes for sign up, sign in and log out
+//import the authController 
 var authController = require('../controllers/apiController.js');
 
 module.exports = function(app, passport) {
     
-app.get('/signup', authController.signup);
+  app.get('/signup', authController.signup);
 
 
-//app.get('/main', authController.signin);  //signin or main
+// //app.get('/main', authController.signin);  //signin or main
 
-app.post('/signup', passport.authenticate('local-signup', {successRedirect: '/profile', 
-                                                            failureRedirects: '/main'} //main not signup since signup modal is on main
-                                                            ));
+// app.post('/signup', passport.authenticate('local-signup', {successRedirect: '/profile', 
+//                                                             failureRedirects: '/main'} //main not signup since signup modal is on main
+//                                                             ));
 
 //app.get('/profile' isLoggedIn, authController.profile); 
 
