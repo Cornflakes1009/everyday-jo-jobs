@@ -161,8 +161,22 @@ $(document).ready(function () {
 
     function createMember(User) {
         console.log("createMember func ran");
-        $.post("/api/posts/", User, function() {
+        $.post("/api/members/", User, function() {
             // put create logic here ?
+            
+            window.location.href = "/profile"; // untested redirect
+        })
+      };
+
+
+
+    $('#signup-submit').on('click', function () {
+        event.preventDefault();
+        checkFormFields();
+        checkSkillsBoxes();
+
+        checkHourlyWage();
+        if(completelyFilledOut === true) {
             var newUser = {
                 name: name,
                 email: email,
@@ -173,20 +187,7 @@ $(document).ready(function () {
                 state: state,
                 hourlyWage: hourlyWage
             };
-            window.location.href = "/profile"; // untested redirect
-        });
-      };
-
-
-
-    $('#signup-submit').on('click', function () {
-        event.preventDefault();
-        checkFormFields();
-        checkSkillsBoxes();
-        console.log(skillsList);
-        checkHourlyWage();
-        if(completelyFilledOut === true) {
-            createMember();
+            createMember(newUser);
         }
         
     }); // end of submit button clicked

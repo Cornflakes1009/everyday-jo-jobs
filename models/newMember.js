@@ -6,14 +6,14 @@
 //     return Members;
 //   };
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(Sequelize, DataTypes) {
   
-	var User = sequelize.define('user', {
-		id: { 
-			autoIncrement: true, 
-			primaryKey: true, 
-			type: DataTypes.INTEGER
-		},
+	var User = Sequelize.define('User', {
+		// id: { 
+		// 	autoIncrement: true, 
+		// 	primaryKey: true, 
+		// 	type: DataTypes.INTEGER
+		// },
 		name: { 
 			type: DataTypes.STRING,
 			notEmpty: true
@@ -44,9 +44,9 @@ module.exports = function(sequelize, DataTypes) {
 
 		
 		//any other information that you want to add to sequelize 
-    	skillsList: {
-      		type: DataTypes.STRING // should this be a string? 
-		},
+    	// skillsList: {
+      	// 	type: DataTypes.STRING // should this be a string? 
+		// },
 		phoneNumber : {
 			type: DataTypes.INTEGER
 		},
@@ -60,7 +60,12 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER
 		}
 });
-
+	User.associate = (models) => {
+		User.belongsToMany(models.Skill, {
+			through: 'UserSkill',
+			onDelete: 'CASCADE',
+		})
+	}
 	return User;
 
 }
