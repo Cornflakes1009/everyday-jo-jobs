@@ -1,8 +1,8 @@
 // pulls data from signup page
 
 $(document).ready(function () {
-    var skillsList = [];
-    var hourlyWage = 0;
+    // var skillsList = [];
+    // var hourlyWage = 0;
     var email;
     var password;
     var name;
@@ -10,7 +10,12 @@ $(document).ready(function () {
     var city;
     var state;
     var completelyFilledOut = false;
-
+    var skillOne = '';
+    var skillTwo = '';
+    var skillThree = '';
+    var wageOne = 0;
+    var wageTwo = 0;
+    var wageThree = 0;
     
     function checkFormFields() {
         email = $('#signup-email').val().trim();
@@ -50,13 +55,16 @@ $(document).ready(function () {
 
     // checking hourly wage box
     function checkHourlyWage() {
-        if ($('#signup-amt').val() > 0) {
-            hourlyWage = $('#signup-amt').val();
-        } else {
-            console.log('Please enter an amount higher than 0.0');
-            $('#error-msg').append("<p>Please enter an amount higher than 0.0.</p>");
-            completelyFilledOut = false;
-        }
+        // if ($('#signup-amt').val() > 0) {
+        //     hourlyWage = $('#signup-amt').val();
+        // } else {
+        //     console.log('Please enter an amount higher than 0.0');
+        //     $('#error-msg').append("<p>Please enter an amount higher than 0.0.</p>");
+        //     completelyFilledOut = false;
+        // }
+        wageOne = $('#wageOne').val();
+        wageTwo = $('#wageTwo').val();
+        wageThree = $('#wageThree').val();
     }
 
     function validateEmail(email) {
@@ -78,96 +86,15 @@ $(document).ready(function () {
 
     // check skills boxes
     function checkSkillsBoxes() {
-        var skillsCount = 0;
-
-        if ($('#inlineCheckbox1').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Babysitting');
-        }
-        if ($('#inlineCheckbox2').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Car Detailing');
-        }
-        if ($('#inlineCheckbox3').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Car Washing');
-        }
-        if ($('#inlineCheckbox4').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Dog Grooming');
-        }
-        if ($('#inlineCheckbox5').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Dog Walking');
-        }
-        if ($('#inlineCheckbox6').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Dog Watching');
-        }
-        if ($('#inlineCheckbox7').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Fence Install/Repair');
-        }
-        if ($('#inlineCheckbox8').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Guitar Lessons');
-        }
-        if ($('#inlineCheckbox9').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Gutter Cleaning');
-        }
-        if ($('#inlineCheckbox10').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Handyman');
-        }
-        if ($('#inlineCheckbox11').is(":checked")) {
-            skillsCount++;
-            skillsList.push('House Cleaning');
-        }
-        if ($('#inlineCheckbox12').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Landscaping');
-        }
-        if ($('#inlineCheckbox13').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Lawn Care');
-        }
-        if ($('#inlineCheckbox14').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Moving Assistance');
-        }
-        if ($('#inlineCheckbox15').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Moving Assistance (with truck)');
-        }
-        if ($('#inlineCheckbox16').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Painting - Artistic');
-        }
-        if ($('#inlineCheckbox17').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Painting - General');
-        }
-        if ($('#inlineCheckbox18').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Pest Removal');
-        }
-        if ($('#inlineCheckbox19').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Photographer');
-        }
-        if ($('#inlineCheckbox20').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Sewing');
-        }
-        if ($('#inlineCheckbox21').is(":checked")) {
-            skillsCount++;
-            skillsList.push('Upholstery Repair');
-        }
-
-        if (skillsCount === 0) {
-            console.log('Please check some skills');
-            $('#error-msg').append("<p>Please check at least one skill.</p>");
+        skillOne = $('.skillOne :selected').val();
+        skillTwo = $('.skillTwo :selected').val();
+        skillThree = $('.skillThree :selected').val();
+        
+        console.log('skill1: ' + skillOne);
+        console.log('skill2: ' + skillTwo);
+        console.log('skill3: ' + skillThree)
+        if (skillOne === '-' || skillTwo === '-' || skillThree === '-') {
+            $('#error-msg').append("<p>Please select all three skills.</p>");
             completelyFilledOut = false;
         }
     }
@@ -184,38 +111,36 @@ $(document).ready(function () {
 
     // }
 
-
-
-
     function createMember(User) {
-        console.log("createMember func ran");
         $.post("/api/members/", User, function() {
-            // put create logic here ?
-            
-            window.location.href = "/profile"; // untested redirect
+            window.location.href = "/profile";
         })
       };
 
-
-
     $('#signup-submit').on('click', function () {
         event.preventDefault();
-        $('#error-msg').text("")
+        
+        $('#error-msg').text("");
         checkFormFields();
         checkSkillsBoxes();
-
+        console.log('skill one: ' + skillOne);
         checkHourlyWage();
         checkEmail();
         if(completelyFilledOut === true) {
+            console.log('skill 1 in the conditional statement: ' + skillOne);
             var newUser = {
                 name: name,
                 email: email,
                 password : password,
-                // skillsList: skillsList,
                 phoneNumber: phoneNumber,
                 city: city,
                 state: state,
-                hourlyWage: hourlyWage
+                skillOne: skillOne,
+                skillTwo: skillTwo,
+                skillThree: skillThree,
+                wageOne: wageOne,
+                wageTwo: wageTwo,
+                wageThree: wageThree
             };
             createMember(newUser);
         } else {
