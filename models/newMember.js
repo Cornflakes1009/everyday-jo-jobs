@@ -58,15 +58,35 @@ module.exports = function(Sequelize, DataTypes) {
 		}, 
 		hourlyWage: {
 			type: DataTypes.INTEGER
-		}
+		},
+		skillOne: {
+			type: DataTypes.STRING
+		},
+		wageOne: {
+			type: DataTypes.STRING
+		},
+		skillTwo: {
+			type: DataTypes.STRING
+		},
+		wageTwo: {
+			type: DataTypes.STRING
+		},
+		skillThree: {
+			type: DataTypes.STRING
+		},
+		wageThree: {
+			type: DataTypes.STRING
+		},
 });
-	User.associate = (models) => {
-		User.belongsToMany(models.Skill, {
-			through: 'UserSkill',
-			onDelete: 'CASCADE',
-		})
-	}
+	// User.associate = (models) => {
+	// 	User.belongsToMany(models.Skill, {
+	// 		through: 'UserSkill',
+	// 		onDelete: 'CASCADE',
+	// 	})
+	// }
 	return User;
 
-}
+} // end of mudule.exports
+
+// removed skills.js and saved to my desktop
   
