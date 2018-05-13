@@ -19,21 +19,29 @@ $(document).ready(function () {
         phoneNumber = $('#signup-phone').val().trim();
         city = $('#inputCity').val().trim();
         state = $('#inputState').val().trim();
+        imgUrl = $('#inputUrl').val().trim();
 
 
         // evaluating each field in the form for data
-        if (email.length === 0) {
-            console.log('please fill in the email box');
-        } else if (password.length === 0) {
+        if (password.length === 0) {
             console.log('please fill in the password box');
+            //$('#error-msg').text("Please enter a password.");
+            $('#error-msg').append("<p>Please enter a password.</p>");
         } else if (name.length === 0) {
             console.log('please fill in the name box');
+            $('#error-msg').append("<p>Please enter a name.</p>");
         } else if (phoneNumber.length === 0) {
             console.log('please fill in the phone number box');
+            $('#error-msg').append("<p>Please enter a phone number.</p>");
         } else if (city.length === 0) {
             console.log('please fill in the city box');
+            $('#error-msg').append("<p>Please enter a city.</p>");
         } else if (state.length === 0) {
             console.log('please fill in the state box');
+            $('#error-msg').append("<p>Please enter a state.</p>");
+        } else if (imgUrl.length === 0) {
+            console.log('please fill in the state box');
+            $('#error-msg').append("<p>Please enter a image URL.</p>");
         } else {
             console.log('all filled in');
             completelyFilledOut = true;
@@ -46,6 +54,8 @@ $(document).ready(function () {
             hourlyWage = $('#signup-amt').val();
         } else {
             console.log('Please enter an amount higher than 0.0');
+            $('#error-msg').append("<p>Please enter an amount higher than 0.0.</p>");
+            completelyFilledOut = false;
         }
     }
 
@@ -61,6 +71,7 @@ $(document).ready(function () {
           console.log("valid email");
         } else {
           console.log("invalid email");
+          $('#error-msg').append("<p>Please enter a valid email.</p>");
           completelyFilledOut = false;
         }
       }
@@ -156,6 +167,8 @@ $(document).ready(function () {
 
         if (skillsCount === 0) {
             console.log('Please check some skills');
+            $('#error-msg').append("<p>Please check at least one skill.</p>");
+            completelyFilledOut = false;
         }
     }
 
@@ -187,6 +200,7 @@ $(document).ready(function () {
 
     $('#signup-submit').on('click', function () {
         event.preventDefault();
+        $('#error-msg').text("")
         checkFormFields();
         checkSkillsBoxes();
 
@@ -204,6 +218,8 @@ $(document).ready(function () {
                 hourlyWage: hourlyWage
             };
             createMember(newUser);
+        } else {
+            $('#errorModal').modal('show');
         }
         
     }); // end of submit button clicked

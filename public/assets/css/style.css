@@ -104,3 +104,15 @@ a:hover, .form-check-label:hover, .form-check-input:hover {
 #search {
     margin-bottom: 20px;
 }
+
+#error-modal-head {
+    background-color: #ff0000;
+}
+
+#error-modal-title {
+    color: #ffffff;
+}
+
+#error-msg {
+    color: #ff0000;
+}
