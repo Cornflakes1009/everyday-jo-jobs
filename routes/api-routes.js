@@ -9,9 +9,11 @@ module.exports = function (app) {
   // GET route for getting all of the todos
   app.get("/api/members", function (req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Members.findAll({}).then(function (dbMembers) {
+    db.User.findAll({
+      attributes: { exclude: ['password']}
+    }).then(function (dbUser) {
       // We have access to the todos as an argument inside of the callback function
-      res.json(dbMembers);
+      res.json(dbUser);
     });
   });
 
