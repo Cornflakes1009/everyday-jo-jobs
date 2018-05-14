@@ -60,7 +60,10 @@ module.exports = function(Sequelize, DataTypes) {
 		},
 		imgUrl: {
 			type: DataTypes.TEXT
-		}
+		},
+		// defaultScope: {
+		// 	attributes: { exclude: ['password'] },
+		//   }
 });
 	// User.associate = (models) => {
 	// 	User.belongsToMany(models.Skill, {
