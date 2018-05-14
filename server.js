@@ -1,6 +1,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path")
+var session = require("express-session"); //added for authen
+//requiring passport
+var passport = require("./config/passport");
 
 // Sets up the Express App
 // =============================================================
@@ -18,6 +21,12 @@ app.use(bodyParser.json());
 
 // Static directory to be served
 app.use(express.static("public"));
+
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // Routes
 // =============================================================
