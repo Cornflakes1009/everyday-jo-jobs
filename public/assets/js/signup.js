@@ -1,8 +1,6 @@
 // pulls data from signup page
 
 $(document).ready(function () {
-    // var skillsList = [];
-    // var hourlyWage = 0;
     var email;
     var password;
     var name;
@@ -10,13 +8,14 @@ $(document).ready(function () {
     var city;
     var state;
     var completelyFilledOut = false;
-    var skillOne = '';
-    var skillTwo = '';
-    var skillThree = '';
-    var wageOne = 0;
-    var wageTwo = 0;
-    var wageThree = 0;
-    
+    var skillOne;
+    var skillTwo;
+    var skillThree;
+    var wageOne;
+    var wageTwo;
+    var wageThree;
+    var imgUrl;
+
     function checkFormFields() {
         email = $('#signup-email').val().trim();
         password = $('#signup-password').val().trim();
@@ -55,16 +54,20 @@ $(document).ready(function () {
 
     // checking hourly wage box
     function checkHourlyWage() {
-        // if ($('#signup-amt').val() > 0) {
-        //     hourlyWage = $('#signup-amt').val();
-        // } else {
-        //     console.log('Please enter an amount higher than 0.0');
-        //     $('#error-msg').append("<p>Please enter an amount higher than 0.0.</p>");
-        //     completelyFilledOut = false;
-        // }
         wageOne = $('#wageOne').val();
         wageTwo = $('#wageTwo').val();
         wageThree = $('#wageThree').val();
+
+        if(wageOne === NaN || wageOne <= 0) {
+            $('#error-msg').append("<p>Please enter a valid hourly rate for the first skill.</p>");
+            completelyFilledOut = false;
+        } else if(wageTwo === NaN || wageTwo <= 0) {
+            $('#error-msg').append("<p>Please enter a valid hourly rate for the second skill.</p>");
+            completelyFilledOut = false;
+        } else if(wageThree === NaN || wageThree <= 0) {
+            $('#error-msg').append("<p>Please enter a valid hourly rate for the third skill.</p>");
+            completelyFilledOut = false;
+        }
     }
 
     function validateEmail(email) {
@@ -99,18 +102,6 @@ $(document).ready(function () {
         }
     }
 
-    // This function inserts a new member into our database and then updates the view
-    // function addMember(event) {
-    //     event.preventDefault();
-    //     var member = {
-    //         text: $newItemInput.val().trim(),
-    //         complete: false
-    //     };
-
-    //     $.post("/api/members", todo, getMembers);
-
-    // }
-
     function createMember(User) {
         $.post("/api/members/", User, function() {
             window.location.href = "/profile";
@@ -119,7 +110,6 @@ $(document).ready(function () {
 
     $('#signup-submit').on('click', function () {
         event.preventDefault();
-        
         $('#error-msg').text("");
         checkFormFields();
         checkSkillsBoxes();
@@ -127,7 +117,6 @@ $(document).ready(function () {
         checkHourlyWage();
         checkEmail();
         if(completelyFilledOut === true) {
-            console.log('skill 1 in the conditional statement: ' + skillOne);
             var newUser = {
                 name: name,
                 email: email,
@@ -140,16 +129,12 @@ $(document).ready(function () {
                 skillThree: skillThree,
                 wageOne: wageOne,
                 wageTwo: wageTwo,
-                wageThree: wageThree
+                wageThree: wageThree,
+                imgUrl: imgUrl
             };
             createMember(newUser);
         } else {
             $('#errorModal').modal('show');
         }
-        
     }); // end of submit button clicked
-
-
-
-
 }); // end of document ready function
