@@ -26,13 +26,23 @@ module.exports = function (app) {
       phoneNumber: req.body.phoneNumber,
       city: req.body.city,
       state: req.body.state,
-      hourlyWage: req.body.hourlyWage
+      skillOne: req.body.skillOne,
+      skillTwo: req.body.skillTwo,
+      skillThree: req.body.skillThree,
+      wageOne: req.body.wageOne,
+      wageTwo: req.body.wageTwo,
+      wageThree: req.body.wageThree,
+      imgUrl: req.body.imgUrl
     })
       .then(function (dbPost) {
         res.json(dbPost);
       });
   });
 };
+
+
+                
+                
 //routes for sign up, sign in and log out
 // var authController = require('../controllers/apiController.js');
 

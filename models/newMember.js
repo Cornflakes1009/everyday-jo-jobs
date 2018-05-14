@@ -58,6 +58,9 @@ module.exports = function(Sequelize, DataTypes) {
 		wageThree: {
 			type: DataTypes.STRING
 		},
+		imgUrl: {
+			type: DataTypes.TEXT
+		}
 });
 	// User.associate = (models) => {
 	// 	User.belongsToMany(models.Skill, {
