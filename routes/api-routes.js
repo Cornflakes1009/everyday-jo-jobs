@@ -37,6 +37,7 @@ module.exports = function (app) {
       imgUrl: req.body.imgUrl
     })
       .then(function (dbPost) {
+        console.log("YOYOY")
         res.json(dbPost);
       });
   });
@@ -61,7 +62,7 @@ module.exports = function (app) {
       }).then(function() {
         res.redirect(307, "/api/main");
       }).catch(function(err) {
-        console.log(err);
+        console.log("error" + err);
         res.json(err);
         // res.status(422).json(err.errors[0].message);
       });

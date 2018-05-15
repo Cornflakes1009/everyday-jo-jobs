@@ -4,9 +4,9 @@ var path = require("path")
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
-    app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/main.html"));
-      });
+    // app.get("/", function(req, res) {
+    //     res.sendFile(path.join(__dirname, "../views/main.html"));
+    //   });
   
       app.get("/profile", function(req, res) {
         res.sendFile(path.join(__dirname, "../views/profile.html"));
@@ -17,11 +17,13 @@ module.exports = function(app) {
       });
 //ADDED AUTHEN ROUTES 
     app.get("/", function(req, res) {
+      console.log(req);
     //if the user already has an account after signup send them to profile 
       if(req.user) {
         res.redirect("/profile");
-      }
+      } else {
         res.sendFile(path.join(__dirname, "../views/signup.html"));
+      }
     });
 
   app.get("/", function(req, res) {

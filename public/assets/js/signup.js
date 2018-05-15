@@ -103,17 +103,18 @@ $(document).ready(function () {
     }
 
     function createMember(User) {
-        $.post("/api/members/", User, function() {
+        $.post("/api/members/", User, function(userinfo) {
+            console.log(`user info: ${userinfo}`);
             window.location.href = "/profile";
         })
       };
 
-    $('#signup-submit').on('click', function () {
+    $('#signup-submit').on('click', function (event) {
         event.preventDefault();
         $('#error-msg').text("");
         checkFormFields();
         checkSkillsBoxes();
-        console.log('skill one: ' + skillOne);
+        //console.log('skill one: ' + skillOne);
         checkHourlyWage();
         checkEmail();
         if(completelyFilledOut === true) {
