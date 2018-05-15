@@ -1,9 +1,18 @@
 $(document).ready(function () {
-  $('#loginModal').modal({ backdrop: 'static', keyboard: false });
+  
+  if (Cookies.get('loggedInCookie') === "true") {
+  } else {
+    Cookies.set('loggedInCookie', true);
+    $('#loginModal').modal({backdrop: 'static', keyboard: false});
+  }
 
   $("#modal-sign-up").on("click", function () {
     window.location.href = "/signup";
   });
+
+  $("#sign-out").on("click", function() {
+    Cookies.remove('loggedInCookie');
+  })
 
   var tr = $('<tr>');
   var $membersContainer = $(".table-body");
