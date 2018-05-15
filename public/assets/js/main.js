@@ -1,9 +1,19 @@
 $(document).ready(function () {
   $('#loginModal').modal({ backdrop: 'static', keyboard: false });
 
+
   $("#modal-sign-up").on("click", function () {
     window.location.href = "/signup";
   });
+
+    $("#modal-sign-up").on("click", function() {
+        window.location.href = "/signup";
+    });
+
+    var tr = $('<tr>');
+    var $membersContainer = $(".table-body");
+    var members = [];
+
 
   var tr = $('<tr>');
   var $membersContainer = $(".table-body");
