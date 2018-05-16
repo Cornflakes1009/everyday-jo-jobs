@@ -26,7 +26,7 @@ passport.use(new LocalStrategy (
             }
             //if user with given email but incorrect password
             else if (!dbUser.validPassword(password)) {
-                return don(null, false, {
+                return done(null, false, {
                     message: "Incorrect password."
                 });
             }
