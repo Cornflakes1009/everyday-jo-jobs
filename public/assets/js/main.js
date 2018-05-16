@@ -27,18 +27,17 @@ $(document).ready(function () {
     $.get("/api/members", function (data) {
       $membersContainer.empty();
       members = data;
-      console.log(members);
       var rowsToAdd = [];
       for (var i = 0; i < members.length; i++) {
         rowsToAdd.push(
           '<tr>',
           `<td>${members[i].name}</td>`,
           `<td>${members[i].skillOne}</td>`,
-          `<td>${members[i].wageOne}</td>`,
+          `<td>$${members[i].wageOne}</td>`,
           `<td>${members[i].skillTwo}</td>`,
-          `<td>${members[i].wageTwo}</td>`,
+          `<td>$${members[i].wageTwo}</td>`,
           `<td>${members[i].skillThree}</td>`,
-          `<td>${members[i].wageThree}</td>`,
+          `<td>$${members[i].wageThree}</td>`,
           `<td>${members[i].email}</td>`,
           `<td>${members[i].phoneNumber}</td>`,
           '</tr>'

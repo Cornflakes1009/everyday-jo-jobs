@@ -17,7 +17,6 @@ module.exports = function(app) {
       });
       //ADDED AUTHEN ROUTES 
       app.get("/", function(req, res) {
-      //console.log(req);
       //if the user already has an account after login send them to profile
       //if not send them to sign up  
       if(req.user) {

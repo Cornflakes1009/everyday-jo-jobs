@@ -28,26 +28,18 @@ $(document).ready(function () {
 
         // evaluating each field in the form for data
         if (password.length === 0) {
-            console.log('please fill in the password box');
-            //$('#error-msg').text("Please enter a password.");
             $('#error-msg').append("<p>Please enter a password.</p>");
         } else if (name.length === 0) {
-            console.log('please fill in the name box');
             $('#error-msg').append("<p>Please enter a name.</p>");
         } else if (phoneNumber.length === 0) {
-            console.log('please fill in the phone number box');
             $('#error-msg').append("<p>Please enter a phone number.</p>");
         } else if (city.length === 0) {
-            console.log('please fill in the city box');
             $('#error-msg').append("<p>Please enter a city.</p>");
         } else if (state.length === 0) {
-            console.log('please fill in the state box');
             $('#error-msg').append("<p>Please enter a state.</p>");
         } else if (imgUrl.length === 0) {
-            console.log('please fill in the state box');
             $('#error-msg').append("<p>Please enter a image URL.</p>");
         } else {
-            console.log('all filled in');
             completelyFilledOut = true;
         }
     } // end of checkFormFields function
@@ -79,9 +71,7 @@ $(document).ready(function () {
         var email = $("#signup-email").val();
       
         if (validateEmail(email)) {
-          console.log("valid email");
         } else {
-          console.log("invalid email");
           $('#error-msg').append("<p>Please enter a valid email.</p>");
           completelyFilledOut = false;
         }
@@ -93,9 +83,6 @@ $(document).ready(function () {
         skillTwo = $('.skillTwo :selected').val();
         skillThree = $('.skillThree :selected').val();
         
-        console.log('skill1: ' + skillOne);
-        console.log('skill2: ' + skillTwo);
-        console.log('skill3: ' + skillThree)
         if (skillOne === '-' || skillTwo === '-' || skillThree === '-') {
             $('#error-msg').append("<p>Please select all three skills.</p>");
             completelyFilledOut = false;
@@ -113,7 +100,6 @@ $(document).ready(function () {
         $('#error-msg').text("");
         checkFormFields();
         checkSkillsBoxes();
-        console.log('skill one: ' + skillOne);
         checkHourlyWage();
         checkEmail();
         if(completelyFilledOut === true) {
