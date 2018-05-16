@@ -16,6 +16,11 @@ a:hover, .form-check-label:hover, .form-check-input:hover {
     color: #cac8c8;
 }
 
+#signup-title:hover {
+    color: #ffffff;
+    cursor: default;
+}
+
 .card-header {
     font-weight: bold;
     font-size: 20px;
