@@ -91,7 +91,7 @@ $(document).ready(function () {
 
     function createMember(User) {
         $.post("/api/members/", User, function() {
-            window.location.href = "/profile";
+            window.location.href = "/";
         })
       };
 
