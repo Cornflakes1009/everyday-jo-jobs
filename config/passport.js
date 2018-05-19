@@ -1,12 +1,11 @@
 //we import passport packages required for authentication
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-//
+
 //We will need the models folder to check passport agains
 var db = require("../models");
-//
-// Telling passport we want to use a Local Strategy. In other words,
-//we want login with a username/email and password
+
+// Telling passport we want to use a Local Strategy. 
 passport.use(new LocalStrategy (
     {
         usernameField: "email"
@@ -35,13 +34,11 @@ passport.use(new LocalStrategy (
         });
     }
 ));
-// //initialize passport-local strategy and the user model
-// //serialize passport   creates the cookie in order to help keep authen across HTTP 
-//requests 
+//initialize passport-local strategy and the user model
+//serialize passport   creates the cookie in order to help keep authen across HTTP requests 
 passport.serializeUser(function(user, cb) {
      cb(null, user);
 });
-
 
 // used to deserialize the user -reads the cookie -ex. take the attribute you defined ex username.id and look up user returning as object 
 //allowing you to use ex  request.user and have ability to work and modify user
