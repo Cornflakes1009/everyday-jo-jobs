@@ -3,7 +3,8 @@ var expect = require("chai").expect;
 
 describe("Login", function() {
   // The default tests in mocha is 2 seconds.
-  // Extending it to 30 seconds to have time to load the pages
+  // Extending it to 20 seconds to have time to load the pages
+  // Also added a few 2-3 second waits so you can see the screens better
 
   this.timeout(20000);
 
@@ -41,11 +42,9 @@ describe("Login", function() {
       // Click the sign up button
       .wait("#modal-sign-up")
       .click("#modal-sign-up")
-      // Evaluate the following selector
       .wait("#signup-title")
       .wait(3000)
       .evaluate(function() {
-        //return document.querySelector("#signup-title");
         return document.title;
       })
       .end()
@@ -78,14 +77,48 @@ describe("Login", function() {
       .type("#wageTwo", 12)
       .click("#signup-submit")
       .wait("#error-modal-title")
-      .evaluate(function() {
-        // Assert the "signup title" link can be found
-        return document.querySelector("#error-msg");
-      })
       .wait(3000)
+      .evaluate(function() {
+        return document.getElementById("error-modal-title").innerText;
+      })
       .end()
-      .then(result => { done() })
-        .catch(done) 
+      .then(function(errorTitle) {
+        expect(errorTitle).to.equal("Error");
+          done();
+      })
+  })
+
+  it("should go to the sign up page, click submit and add the user", function(done) {
+    new Nightmare({ show: true })
+      .goto("https://everyday-jo-jobs.herokuapp.com/")
+      // Click the sign up button
+      .wait("#modal-sign-up")
+      .click("#modal-sign-up")
+      .wait("#signup-title")
+      .type("#signup-email", "joseph@gmail.com")
+      .type("#signup-password", "testPassword")
+      .type("#signup-name", "Joseph Hobbs")
+      .type("#signup-phone", "8167164567")
+      .type("#inputCity", "Lee Summit")
+      .type("#inputState", "MO")
+      .type("#inputUrl", "testurl")
+      .select('.skillOne', "Car Detailing")
+      .type("#wageOne", 10)
+      .select('.skillTwo', "Car Washing")
+      .type("#wageTwo", 12)
+      .select('.skillThree', "Lawn Care")
+      .type("#wageThree", 15)
+      .click("#signup-submit")
+      .wait("#sign-out")
+      .wait(3000)
+      .evaluate(function() {
+        return document.getElementById("sign-out").innerText;
+      })
+      .end()
+      .then(function(headerRowItem) {
+        expect(headerRowItem).to.equal("Sign Out");
+          done();
+      })
   })
 
 });
