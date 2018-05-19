@@ -8,11 +8,11 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../views/main.html"));
       });
   
-      // app.get("/profile", function(req, res) {
-      //   res.sendFile(path.join(__dirname, "../views/profile.html"));
-      // });
+    app.get("/profile", function(req, res) {
+       res.sendFile(path.join(__dirname, "../views/profile.html"));
+       });
 
-      app.get("/signup", function(req, res) {
+    app.get("/signup", function(req, res) {
         res.sendFile(path.join(__dirname, "../views/signup.html"));
       });
       //ADDED AUTHEN ROUTES 
@@ -20,17 +20,18 @@ module.exports = function(app) {
       //if the user already has an account after login send them to profile
       //if not send them to sign up  
        if(req.user) {
-      //   res.redirect("/profile");
-      } else {
-    
+         res.redirect("/profile");
+      } 
         res.sendFile(path.join(__dirname, "../views/signup.html"));
-      }
       });
+      
 
       app.get("/", function(req, res) {
-      //if the user already has an account after login them to profile  page otherwise send them to login which is on main page
+      //commented out for authen
+      
+        // //if the user already has an account after login them to profile  page otherwise send them to login which is on main page
       if(req.user) {
-      // res.redirect("/profile");
+        res.redirect("/profile");
       }
       res.sendFile(path.join(__dirname, "../views/main.html"));
       });
@@ -39,8 +40,8 @@ module.exports = function(app) {
       // isAuthenticated middleware added to route
       // If a user who is not logged in tries to access this route they will be 
       //redirected to the signup page
-      // app.get("/profile", isAuthenticated, function(req, res) {
-      //   res.sendFile(path.join(__dirname, "../views/signup.html"));
+      app.get("/profile", isAuthenticated, function(req, res) {
+         res.sendFile(path.join(__dirname, "../views/signup.html"));
       
       //   // app.post('/signup', passport.authenticate('local-signup',  { successRedirect: '/signin',
       //   // failureRedirect: '/signup'}
@@ -50,7 +51,7 @@ module.exports = function(app) {
 
 
 
-      // });      
+     });      
 };
   
   
